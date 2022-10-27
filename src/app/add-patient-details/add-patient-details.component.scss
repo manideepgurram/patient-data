@@ -1,0 +1,30 @@
+.file{
+// background-color: aqua;
+display: flex;
+margin-top: 10px;
+}
+.file::-webkit-file-upload-button{
+    margin-top: 100px;
+    background: hotpink;
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 100px;
+    margin-right: 20px;
+}
+.container{
+    width: 300px;
+    background-color: palegoldenrod;
+    padding: auto;
+    height: 200px;
+    border-radius: 10px;
+    margin-top: 10%;
+}
+.btn{
+    float: right;
+}
+.buttons{
+margin-left: 120px;
+}
+.col{
+    margin-left:200px ;
+}

@@ -1,0 +1,60 @@
+<nav
+class="navbar navbar-expand navbar-dark"
+style="background-color: rgb(21, 49, 49)"
+>
+<h2 class="navbar-brand" style="margin: -12px 0 -15px 10px">
+  Data Loader Portal
+</h2>
+<ul class="navbar-nav mr-auto" routerLinkActive="active"></ul>
+
+<ul class="navbar-nav ml-auto" *ngIf="loggedin !== 'true'">
+ 
+  <li class="nav-item">
+    <a routerLink="/login" class="nav-link text-light">Login</a>
+  </li>
+</ul>
+
+<ul class="navbar-nav ml-auto" *ngIf="loggedin == 'true'">
+  <li class="nav-item">
+    <a href="/profile" class="nav-link" routerLink="profile">{{
+      username
+    }}</a>
+  </li>
+  <li class="nav-item">
+    <a href class="nav-link" (click)="logout()">LogOut</a>
+  </li>
+</ul>
+</nav>
+
+<table class="table table-striped table-hover" style="background-color: antiquewhite;">
+    <thead style="background-color: burlywood;">
+        <td>Id</td>
+        <td>Name</td>
+        <td>Age</td>
+        <td>Email</td>
+        <td>DOB</td>
+        <td>Address</td>
+        <td>Phone Number</td>
+        <td>Drug Id</td>
+        <td>Drug Name</td>
+        <td>Status</td>
+    </thead>
+    <tr *ngFor="let details of details">
+        <td>{{ details.id }}</td>
+        <td>{{ details.name }}</td>
+        <td>{{ details.age }}</td>
+        <td>{{ details.email }}</td>
+        <td>{{ details.dob }}</td>
+        <td>{{ details.address }}</td>
+        <td>{{ details.phonenumber }}</td>
+        <td>{{ details.drugid }}</td>
+        <td>{{ details.drugname }}</td>
+        <td style="color: rgb(22, 65, 22);">{{ details.status }}</td>
+        <!-- <td><button mat-raised-button class="btn btn-danger text-danger" (click)="confirmDialog(book.id)">Delete
+                Book</button></td> -->
+    </tr>
+</table>
+
+<br><br>
+    <button class="btn btn-secondary create " routerLink='/login-home'>Back</button>
+    <br>

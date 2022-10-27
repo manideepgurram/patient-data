@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand navbar-dark" style="background-color: rgb(26, 22, 25);height: 50px;">
+        <h2 class="navbar-brand" style="margin: -12px 0 -15px 10px">
+            Data Loader Portal
+        </h2>
+        <ul class="navbar-nav mr-auto" routerLinkActive="active"></ul>
+
+        <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item">
+                <!-- <a routerLink="/login" class="nav-link text-light">Login</a> -->
+            </li>
+        </ul>
+
+    </nav>
+    <section>
+        <div class="container py-0">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col col-xl-10">
+                    <div class="card" style="border-radius: 1rem;">
+                        <div class="row g-0">
+                            <div class="col-md-4 col-lg-5 d-none d-md-block">
+                                <img src="https://th.bing.com/th/id/OIP.smqGPAkwBQf_zMfdGUNyUwHaGG?w=190&h=180&c=7&r=0&o=5&pid=1.7"
+                                    class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+                            </div>
+                            <div class="col-md-4 col-lg-7 d-flex align-items-center">
+                                <div class="card-body p-4 p-lg-5 text-black">
+
+                                    <form [formGroup]="form" (ngSubmit)='onSubmit()' id="loginform">
+
+                                        <div class="d-flex align-items-center mb-2 pb-1">
+                                            <i class="fas fa-cubes fa-2x me-3" style="color: #2b2726;"></i>
+                                            <span class="h1 fw-bold mb-0">Login</span>
+                                        </div>
+
+                                        <div class="form-outline mb-2">
+                                            <label class="form-label" for="username">Username</label>
+                                            <input type="email" id="username" formControlName="username"
+                                                [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+                                                class="form-control form-control-lg" placeholder="Enter Your username"
+                                                required />
+                                                <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                                                    <div *ngIf="f.username.errors.required">Username is required</div>
+                                                    <div *ngIf="f.username.errors.minlength">
+                                                        Username must be at least 6 characters
+                                                    </div>
+                                                    <div *ngIf="f.username.errors.maxlength">
+                                                        Username must not exceed 20 characters
+                                                    </div>
+                                                </div>
+                                        </div>
+                              
+                                        <div class="form-outline mb-2">
+                                            <label class="form-label" for="password">Password</label>
+                                            <input type="password" id="password" formControlName="password"
+                                                class="form-control form-control-lg" placeholder="Enter Password"
+                                                required [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                                <div *ngIf="f.password.errors.required">Password is required</div>
+                                                <div *ngIf="f.password.errors.minlength">
+                                                    Password must be at least 8 characters
+                                                </div>
+                                                <div *ngIf="f.password.errors.maxlength">
+                                                    Username must not exceed 40 characters
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="pt-1 mb-2">
+                                            <button class="btn btn-dark btn-lg btn-block" (click)='onSubmit()'
+                                                type="button">Login</button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

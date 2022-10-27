@@ -1,0 +1,16 @@
+<form [formGroup]="form" (ngSubmit)='save()'>
+    <div class="container">
+        <input type="file" class="file" id="file"  formControlName="file" (change)='ReadExcel($event)' 
+            [ngClass]="{ 'is-invalid': submitted && f.file.errors }" />
+            <div *ngIf="f.file.touched && f.file.invalid" class="alert alert-danger">
+                <div *ngIf="f.file.errors?.required">File is required.</div>
+            </div>
+
+    </div>
+    <br><br>
+    <div class="buttons row">
+        <button class="btn btn-secondary create col col-2 " routerLink='/login-home'>Back</button>
+        <button class="btn btn-secondary submit col col-2 " [disabled]="f.file.invalid"  >submit</button>
+    </div>
+    <br>
+</form>
